@@ -32,7 +32,7 @@ module controle(clock, clr, ri, Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, 
 				end	
 		end
 		
-	always_comb
+	always
 		begin
 			case(estado_atual)
 				t1: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b010111100011;
@@ -45,6 +45,7 @@ module controle(clock, clr, ri, Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, 
 						SUB: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b000110100011;
 						OUT: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111110010;
 						HLT: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
+						default: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
 					endcase
 				t5:
 					case(ri)
@@ -53,6 +54,7 @@ module controle(clock, clr, ri, Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, 
 						SUB: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001011100001;
 						OUT: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
 						HLT: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
+						default: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
 					endcase
 				t6:
 					case(ri)
@@ -61,7 +63,11 @@ module controle(clock, clr, ri, Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, 
 						SUB: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111001111;
 						OUT: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
 						HLT: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
+						default: {Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
 					endcase
+				default: 
+					{Cp, Ep, Lm_barra, CE_barra, Li_barra, Ei_barra, La_barra, Ea, Su, Eu, Lb_barra, Lo_barra} <= 12'b001111100011;
+				
 			endcase
 		end
 
